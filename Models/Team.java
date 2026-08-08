@@ -1,8 +1,10 @@
 package Models;
 
 import java.util.ArrayList;
+import java.io.Serializable;
 
-public class Team {
+public class Team implements Serializable {
+    private static final long serialVersionUID = 1L;
     private String name; //The custom name like for example "Reikland Reavers"
     private Race race; //This is what kind of team it is Like "Human" or something like "Underworld Denazins"
     private int treasury; //Money
@@ -15,6 +17,7 @@ public class Team {
     private int Win; //The teams total Wins
     private int Loss; //The teams total Loses
     private int TTV; //This is the Total Team value.
+    
 
     public Team(String name, Race race){
         this.name = name;

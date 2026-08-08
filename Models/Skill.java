@@ -1,7 +1,11 @@
 package Models;
 
-public class Skill {
+import java.io.Serializable;
 
+
+public class Skill implements Serializable {
+
+    private static final long serialVersionUID = 1L;
     private boolean expert;
     private int value;
     private String name;

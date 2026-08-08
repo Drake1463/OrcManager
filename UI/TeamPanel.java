@@ -83,4 +83,18 @@ public class TeamPanel extends JPanel {
             listener.onTeamCreated(newTeam);
         }
     }
+    public void setCurrentTeam(Team team) {
+    if (team == null) {
+        return;
+    }
+
+    teamNameField.setText(team.getName());
+    raceDropdown.setSelectedItem(team.getRace());
+
+    outputArea.setText("Loaded team:\n");
+    outputArea.append("Name: " + team.getName() + "\n");
+    outputArea.append("Race: " + team.getRace() + "\n");
+    outputArea.append("Treasury: " + team.getTreasury() + "K\n");
+    outputArea.append("Players: " + team.getPlayers().size() + "\n");
+}
 }

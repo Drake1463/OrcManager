@@ -1,14 +1,17 @@
 package Models;
 
 import java.util.ArrayList;
+import java.io.Serializable;
 
-public class Player {
+public class Player implements Serializable {
 
     private String name;
     private Player_Position position;
     private int spp;
     private int value;
     private ArrayList<Skill> skills;
+
+    private static final long serialVersionUID = 1L;
 
     public Player(String name, Player_Position position) {
         this.name = name;
