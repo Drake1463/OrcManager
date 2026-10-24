@@ -7,6 +7,7 @@ import java.io.Serializable;
 public class Player_Position implements Serializable {
     private static final long serialVersionUID = 1L;
     private String name;
+    private int jerseyNumber;
     private String category;
     private int maxAllowed;
     private int cost;
@@ -18,8 +19,9 @@ public class Player_Position implements Serializable {
     private int armor;
     private ArrayList<Skill> skills;
 
-    public Player_Position(String name, String category, int maxAllowed, int cost, int movement, int strength, int agility, int passing, int armor, ArrayList<Skill> skills) {
+    public Player_Position(String name, int jerseyNumber, String category, int maxAllowed, int cost, int movement, int strength, int agility, int passing, int armor, ArrayList<Skill> skills) {
         this.name = name;
+        this.jerseyNumber = jerseyNumber;
         this.category = category;
         this.maxAllowed = maxAllowed;
         this.cost = cost;
@@ -33,6 +35,10 @@ public class Player_Position implements Serializable {
 
     public String getName() {
         return name;
+    }
+
+    public int getJerseyNumber() {
+        return jerseyNumber;
     }
 
     public String getCategory() {
@@ -73,7 +79,7 @@ public class Player_Position implements Serializable {
 
     @Override
     public String toString() {
-    return name + " - " + cost + "K";
+    return name + " - "  + cost + "K";
 }
     
 

@@ -6,7 +6,7 @@ import Models.Skill;
 
 /*
 This Program should:
-Create player
+Create player 
 Gain SPP
 Level up
 Add skills
@@ -16,12 +16,12 @@ Retire player
 
 public class Player_Manager {
 
-    public Player createPlayer(String name, Player_Position position) {
+    public Player createPlayer(String name,int jerseyNumber,Player_Position position) {
         if (name == null || name.isEmpty() || position == null) {
             return null;
         }
 
-        return new Player(name, position);
+        return new Player(name, jerseyNumber, position);
     }
 
     public boolean addSPP(Player player, int amount) {

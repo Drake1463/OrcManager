@@ -17,6 +17,8 @@ import javax.swing.JList;
 import javax.swing.DefaultListModel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerNumberModel;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
@@ -38,6 +40,7 @@ public class PlayerPanel extends JPanel {
 
     //This creates the Player Name field
     private JTextField playerNameField;
+    private JSpinner jerseyNumberSpinner;
 
     private JComboBox<Team> teamDropdown;
 
@@ -67,6 +70,7 @@ public class PlayerPanel extends JPanel {
         formPanel.setLayout(new GridLayout(3, 2, 10, 10));
 
         playerNameField = new JTextField();
+        jerseyNumberSpinner = new JSpinner(new SpinnerNumberModel(1, 1, 99, 1));
         teamDropdown = new JComboBox<>();
         positionDropdown = new JComboBox<>();
 
@@ -75,6 +79,8 @@ public class PlayerPanel extends JPanel {
 
         formPanel.add(new JLabel("Player Name:"));
         formPanel.add(playerNameField);
+        formPanel.add(new JLabel("Jersey Number:"));
+        formPanel.add(jerseyNumberSpinner);
 
         formPanel.add(new JLabel("Team:"));
         formPanel.add(teamDropdown);
@@ -170,7 +176,8 @@ public class PlayerPanel extends JPanel {
             return;
         }
 
-        Player newPlayer = playerManager.createPlayer(playerName, selectedPosition);
+        Player newPlayer = playerManager.createPlayer(
+            playerName, (Integer) jerseyNumberSpinner.getValue(), selectedPosition);
 
         if (newPlayer == null) {
             outputArea.setText("Could not create player.");
@@ -214,4 +221,5 @@ public class PlayerPanel extends JPanel {
             outputArea.setText("Could not fire player.");
         }
     }
+    
 }

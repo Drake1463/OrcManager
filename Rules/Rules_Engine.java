@@ -25,24 +25,25 @@ private static ArrayList<Skill> makeSkills(String... skillNames) {
     getAllowedPositions(Race race){
         ArrayList<Player_Position> roster = new ArrayList<>();
         switch (race) {
+            //TODO Add other races and their allowed positions
             case HUMANS:
     roster.addAll(Arrays.asList(
-        new Player_Position("Halfling Hopeful", "Lineman", 3, 30, 5, 2, 3, 4, 7,
+        new Player_Position("Halfling Hopeful",0 ,"Lineman", 3, 30, 5, 2, 3, 4, 7,
                 makeSkills("Dodge", "Right Stuff", "Stunty")),
 
-        new Player_Position("Lineman", "Lineman", 16, 50, 6, 3, 3, 4, 9,
+        new Player_Position("Lineman",0 ,"Lineman", 16, 50, 6, 3, 3, 4, 9,
                 makeSkills()),
 
-        new Player_Position("Thrower", "Thrower", 2, 75, 6, 3, 3, 3, 9,
+        new Player_Position("Thrower",0 ,"Thrower", 2, 75, 6, 3, 3, 3, 9,
                 makeSkills("Pass", "Sure Hands")),
 
-        new Player_Position("Catcher", "Catcher", 2, 75, 8, 3, 3, 4, 8,
+        new Player_Position("Catcher",0 ,"Catcher", 2, 75, 8, 3, 3, 4, 8,
                 makeSkills("Catch", "Dodge")),
 
-        new Player_Position("Blitzer", "Blitzer", 2, 85, 7, 3, 3, 4, 9,
+        new Player_Position("Blitzer",0 ,"Blitzer", 2, 85, 7, 3, 3, 4, 9,
                 makeSkills("Block", "Tackle")),
 
-        new Player_Position("Ogre", "Ogre", 1, 140, 5, 5, 4, 5, 10,
+        new Player_Position("Ogre",0 ,"Ogre", 1, 140, 5, 5, 4, 5, 10,
                 makeSkills("Bone Head", "Mighty Blow", "Thick Skull", "Throw Team-mate", "Loner (3+)"))
     ));
     break;

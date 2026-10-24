@@ -35,8 +35,8 @@ public class MainWindow extends JFrame {
 
         JTabbedPane tabs = new JTabbedPane();
 
-        tabs.addTab("Team", teamPanel);
-        tabs.addTab("Players", playerPanel);
+        tabs.addTab("Team Selector", teamPanel);
+        tabs.addTab("Team Editor", playerPanel);
 
         add(tabs, BorderLayout.CENTER);
 

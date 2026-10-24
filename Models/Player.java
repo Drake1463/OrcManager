@@ -6,6 +6,7 @@ import java.io.Serializable;
 public class Player implements Serializable {
 
     private String name;
+    private int jerseyNumber;
     private Player_Position position;
     private int spp;
     private int value;
@@ -13,8 +14,9 @@ public class Player implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Player(String name, Player_Position position) {
+    public Player(String name, int jerseyNumber, Player_Position position) {
         this.name = name;
+        this.jerseyNumber = jerseyNumber;
         this.position = position;
         this.spp = 0;
         this.value = position.getCost();
@@ -28,6 +30,10 @@ public class Player implements Serializable {
 
     public String getName() {
         return name;
+    }
+
+    public int getJerseyNumber() {
+        return jerseyNumber;
     }
 
     public Player_Position getPosition() {
@@ -50,10 +56,14 @@ public class Player implements Serializable {
         return skills;
     }
 
-    //This overide is what makes the player display its name,value skill 
+
+    
+
+    //This overide is what makes the player display its name,value skill,and jersey number
     @Override
 public String toString() {
     return name + " - "
+            + jerseyNumber + " - "
             + position.getName() + " - "
             + value + "K - Skills: "
             + skillsToString();
