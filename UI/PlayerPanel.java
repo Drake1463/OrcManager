@@ -37,6 +37,7 @@ There Value
 public class PlayerPanel extends JPanel {
 
     private Team currentTeam;
+    private Player currentPlayer;
 
     //This creates the Player Name field
     private JTextField playerNameField;
@@ -62,6 +63,16 @@ public class PlayerPanel extends JPanel {
 
     private Team_Manager teamManager;
     private Player_Manager playerManager;
+
+    public void setPlayer(Player player) {
+    this.currentPlayer = player;
+
+    if (player != null) {
+        playerNameField.setText(player.getName());
+        jerseyNumberSpinner.setValue(player.getJerseyNumber());
+        // sppSpinner.setValue(player.getSpp()); // TODO intigrate this when you have ssp done
+    }
+}
 
     public PlayerPanel() {
         teamManager = new Team_Manager();

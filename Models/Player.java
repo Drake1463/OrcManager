@@ -30,7 +30,7 @@ public class Player implements Serializable {
 
     public String getName() {
         return name;
-    }
+    } 
 
     public int getJerseyNumber() {
         return jerseyNumber;
@@ -54,6 +54,31 @@ public class Player implements Serializable {
 
     public ArrayList<Skill> getSkills() {
         return skills;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setJerseyNumber(int jerseyNumber) {
+        this.jerseyNumber = jerseyNumber;
+    }
+
+    public void setPosition(Player_Position position) {
+        this.position = position;
+        this.value = position.getCost();
+        this.skills = new ArrayList<>();
+        for (Skill skill : position.getSkills()) {
+            this.skills.add(skill);
+        }
+    }
+
+    public void setValue(int value) {
+        this.value = value;
+    }
+
+    public void setSkills(ArrayList<Skill> skills) {
+        this.skills = skills;
     }
 
 

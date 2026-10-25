@@ -9,7 +9,6 @@ import Storage.Data_Storage;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JFileChooser;
-import java.awt.BorderLayout;
 
 public class MainWindow extends JFrame {
 
