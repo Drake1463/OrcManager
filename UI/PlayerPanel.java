@@ -41,8 +41,11 @@ public class PlayerPanel extends JPanel {
     //This creates the Player Name field
     private JTextField playerNameField;
     private JSpinner jerseyNumberSpinner;
+    
 
     private JComboBox<Team> teamDropdown;
+
+    private JLabel treasuryLabel;
 
     //this creates the Position Dropdown
     private JComboBox<Player_Position> positionDropdown;
@@ -100,20 +103,33 @@ public class PlayerPanel extends JPanel {
         add(formPanel, BorderLayout.NORTH);
         add(new JScrollPane(rosterList), BorderLayout.CENTER);
         add(outputArea, BorderLayout.SOUTH);
+        treasuryLabel = new JLabel("Treasury: 0K");
+        add(treasuryLabel, BorderLayout.EAST);
 
         hireButton.addActionListener(e -> hirePlayer());
         fireButton.addActionListener(e -> fireSelectedPlayer());
     }
+
+    private void refreshTreasury() {
+    if (currentTeam == null) {
+        treasuryLabel.setText("Treasury: No Team");
+    } else {
+        treasuryLabel.setText(
+                "Treasury: " + currentTeam.getTreasury() + "K"
+        );
+    }
+}
 
     public void setCurrentTeam(Team team) {
         this.currentTeam = team;
         refreshPositionDropdown();
         refreshRosterList();
         refreshTeamDropdown();
+        refreshTreasury();
 
         if (currentTeam != null) {
-            outputArea.setText("Current team: " + currentTeam.getName()
-                    + "\nTreasury: " + currentTeam.getTreasury() + "K");
+            outputArea.setText("Current team: " + currentTeam.getName());
+            refreshTreasury();
         }
     }
 
@@ -159,7 +175,7 @@ public class PlayerPanel extends JPanel {
         if (currentTeam == null) {
             outputArea.setText("Create a team first.");
             return;
-        }
+        }  
 
         String playerName = playerNameField.getText();
 
@@ -186,10 +202,10 @@ public class PlayerPanel extends JPanel {
 
         boolean hired = teamManager.hirePlayer(currentTeam, newPlayer);
 
-        if (hired) {
+        if (hired) {  
             outputArea.setText("Hired " + playerName
-                    + " as " + selectedPosition.getName()
-                    + "\nTreasury: " + currentTeam.getTreasury() + "K");
+                    + " as " + selectedPosition.getName());
+            refreshTreasury();
 
             playerNameField.setText("");
             refreshRosterList();
