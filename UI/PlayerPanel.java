@@ -38,6 +38,8 @@ public class PlayerPanel extends JPanel {
 
     private Team currentTeam;
     private Player currentPlayer;
+    private SingleEditPanel singleEditPanel;
+
 
     //This creates the Player Name field
     private JTextField playerNameField;
@@ -66,6 +68,18 @@ public class PlayerPanel extends JPanel {
 
     public void setPlayer(Player player) {
     this.currentPlayer = player;
+    singleEditPanel.setPlayer(player);
+
+
+    rosterList.addListSelectionListener(e -> {
+    if (!e.getValueIsAdjusting()) {
+        Player selectedPlayer = rosterList.getSelectedValue();
+        singleEditPanel.setPlayer(selectedPlayer);
+    }
+    singleEditPanel.setPlayerUpdatedListener(() -> {
+    refreshRosterList();
+});
+});
 
     if (player != null) {
         playerNameField.setText(player.getName());

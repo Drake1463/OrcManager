@@ -28,9 +28,8 @@ public class SingleEditPanel extends JPanel {
         setLayout(new GridLayout(4, 2, 10, 10));
 
         nameField = new JTextField();
-        singleEditPanel = new SingleEditPanel();
-        
-        add(singleEditPanel);
+        singleEditPanel = this;
+    
 
         jerseySpinner = new JSpinner(
                 new SpinnerNumberModel(1, 1, 99, 1)

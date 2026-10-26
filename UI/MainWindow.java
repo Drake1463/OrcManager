@@ -5,6 +5,8 @@ import Models.Team;
 import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
 import java.awt.BorderLayout;
+import java.awt.Component;
+
 import Storage.Data_Storage;
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -15,6 +17,8 @@ public class MainWindow extends JFrame {
     private Team currentTeam; 
     private TeamPanel teamPanel;
     private PlayerPanel playerPanel;
+    private SingleEditPanel SingleEditPanel;
+
     private JButton saveButton;
     private JButton loadButton;
 
@@ -25,6 +29,7 @@ public class MainWindow extends JFrame {
         setLocationRelativeTo(null);
 
         playerPanel = new PlayerPanel();
+        SingleEditPanel = new SingleEditPanel();
         
 
         teamPanel = new TeamPanel(team -> {
@@ -36,6 +41,7 @@ public class MainWindow extends JFrame {
 
         tabs.addTab("Team Selector", teamPanel);
         tabs.addTab("Team Editor", playerPanel);
+        tabs.addTab("Player Editor", SingleEditPanel);
 
         add(tabs, BorderLayout.CENTER);
 
