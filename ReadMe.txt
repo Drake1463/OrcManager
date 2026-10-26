@@ -16,3 +16,4 @@ Export printable rosters
 Improve UI
 Make saving more streamline
 Make Loading more streamline
+Make it so multiple teams can be loaded onto the list 
