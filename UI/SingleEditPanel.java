@@ -25,7 +25,7 @@ public class SingleEditPanel extends JPanel {
     private Runnable playerUpdatedListener;
 
     public SingleEditPanel() {
-        setLayout(new GridLayout(4, 2, 10, 10));
+        setLayout(new GridLayout(5, 2, 10, 10));
 
         nameField = new JTextField();
         singleEditPanel = this;
