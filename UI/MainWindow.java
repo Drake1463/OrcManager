@@ -5,7 +5,7 @@ import Models.Team;
 import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
 import java.awt.BorderLayout;
-import java.awt.Component;
+
 
 import Storage.Data_Storage;
 import javax.swing.JButton;

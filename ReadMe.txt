@@ -1,9 +1,9 @@
 This program is Created By Derek Flood
 Project Started in 7/9/2026
-Last updated in 10/26/2026
+Last updated in 10/27/2026
 
 Left TODO:
-Track Team Value (TV)
+Track Team Value (TV) This is done by (Gold + all Players Value + all rerolls, apothocarys etc)
 Level up players
 Track SPP
 When Hiring check against the rules to see if they have hit the limit for that position

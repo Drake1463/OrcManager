@@ -4,6 +4,7 @@ package UI;
 import Models.Player;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
@@ -12,10 +13,12 @@ import javax.swing.SpinnerNumberModel;
 
 import java.awt.GridLayout;
 
+
 public class SingleEditPanel extends JPanel {
 
     private Player currentPlayer;
-    private SingleEditPanel singleEditPanel;
+
+    private JComboBox<Player> playerSelect;
     private JTextField nameField;
     private JSpinner jerseySpinner;
     private JSpinner sppSpinner;
@@ -27,18 +30,29 @@ public class SingleEditPanel extends JPanel {
     public SingleEditPanel() {
         setLayout(new GridLayout(5, 2, 10, 10));
 
-        nameField = new JTextField();
-        singleEditPanel = this;
-    
+        //This is supposed to create a dropdown menu for selecting a player on the team to be edited
+        //TODO Populate the playerSelect dropdown with players from the current team
+        playerSelect = new JComboBox<>();
+        add(new JLabel("Select Player:"));
+        add(playerSelect);
+        playerSelect.addActionListener(e -> {
+            Player selectedPlayer = (Player) playerSelect.getSelectedItem();
+            setPlayer(selectedPlayer);
+        });
 
+        //This is used to rename the player
+        nameField = new JTextField();
+    
+        //this is used to set or reset the jersey number of the player
         jerseySpinner = new JSpinner(
                 new SpinnerNumberModel(1, 1, 99, 1)
         );
 
+        //this is used to set or reset the SPP of the player
         sppSpinner = new JSpinner(
                 new SpinnerNumberModel(0, 0, 999, 1)
         );
-
+        //Suprise suprise this is used to put the save button on the page
         saveButton = new JButton("Save Player Changes");
 
         add(new JLabel("Player Name:"));
@@ -61,8 +75,7 @@ public class SingleEditPanel extends JPanel {
         
     }
 
-    
-
+    //This method is used to set the current player for editing
     public void setPlayer(Player player) {
         this.currentPlayer = player;
 
@@ -78,7 +91,7 @@ public class SingleEditPanel extends JPanel {
 
         setFieldsEnabled(true);
     }
-
+    //This below is the method that is used to manage the act of saving the changes that are to the character
     private void saveChanges() {
         if (currentPlayer == null) {
             return;
