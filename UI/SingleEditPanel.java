@@ -2,6 +2,7 @@ package UI;
 //This is a panel for editing a single player, including there Level, spp, and other relevant things of that nature.
 
 import Models.Player;
+import Models.Team;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -74,6 +75,26 @@ public class SingleEditPanel extends JPanel {
 
         
     }
+
+    public void setCurrentTeam(Team team) {
+    playerSelect.removeAllItems();
+
+    if (team == null) {
+        setPlayer(null);
+        return;
+    }
+
+    for (Player player : team.getPlayers()) {
+        playerSelect.addItem(player);
+    }
+
+    if (playerSelect.getItemCount() > 0) {
+        playerSelect.setSelectedIndex(0);
+        setPlayer((Player) playerSelect.getSelectedItem());
+    } else {
+        setPlayer(null);
+    }
+}
 
     //This method is used to set the current player for editing
     public void setPlayer(Player player) {

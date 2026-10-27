@@ -35,6 +35,7 @@ public class MainWindow extends JFrame {
         teamPanel = new TeamPanel(team -> {
             currentTeam = team;
             playerPanel.setCurrentTeam(currentTeam);
+            SingleEditPanel.setCurrentTeam(currentTeam);
         });
 
         JTabbedPane tabs = new JTabbedPane();
@@ -105,6 +106,7 @@ private void loadTeam() {
         if (loadedTeam != null) {
             currentTeam = loadedTeam;
             playerPanel.setCurrentTeam(currentTeam);
+            SingleEditPanel.setCurrentTeam(currentTeam);
 
             System.out.println("Team loaded: " + currentTeam.getName());
         } else {
