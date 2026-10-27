@@ -18,6 +18,7 @@ public class MainWindow extends JFrame {
     private TeamPanel teamPanel;
     private PlayerPanel playerPanel;
     private SingleEditPanel SingleEditPanel;
+    private StaffPanel staffPanel;
 
     private JButton saveButton;
     private JButton loadButton;
@@ -30,19 +31,24 @@ public class MainWindow extends JFrame {
 
         playerPanel = new PlayerPanel();
         SingleEditPanel = new SingleEditPanel();
+        staffPanel = new StaffPanel();
         
 
         teamPanel = new TeamPanel(team -> {
             currentTeam = team;
             playerPanel.setCurrentTeam(currentTeam);
             SingleEditPanel.setCurrentTeam(currentTeam);
+            staffPanel.setCurrentTeam(currentTeam);
         });
 
         JTabbedPane tabs = new JTabbedPane();
 
+
+        //This is where we add diffrent panels to the program
         tabs.addTab("Team Selector", teamPanel);
         tabs.addTab("Team Editor", playerPanel);
         tabs.addTab("Player Editor", SingleEditPanel);
+        tabs.addTab("Staff Editor", staffPanel);
 
         add(tabs, BorderLayout.CENTER);
 
@@ -107,6 +113,7 @@ private void loadTeam() {
             currentTeam = loadedTeam;
             playerPanel.setCurrentTeam(currentTeam);
             SingleEditPanel.setCurrentTeam(currentTeam);
+            staffPanel.setCurrentTeam(currentTeam);
 
             System.out.println("Team loaded: " + currentTeam.getName());
         } else {
